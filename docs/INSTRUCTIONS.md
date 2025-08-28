@@ -2,7 +2,6 @@
 
 Redesign je visitekaartje op basis van een headless CMS en een framework.
 
-
 ## Context
 Deze leertaak hoort bij sprint 13: Your Tribe for Life. Dit is een autonome opdracht die je individueel uitvoert voor jouw eigen FDND Tribe.
 
@@ -20,10 +19,8 @@ Voor deze leertaak worden verschillende workshops aangeboden:
 
 - [Sprint Planning](sprint-planning.md)
 - [Frameworks](frameworks.md)
-- [Live rendering]()
+- [Live rendering](live-rendering.md)
 - [Code/Design review]()
-
-
 
 ## Definitions of Done
 
