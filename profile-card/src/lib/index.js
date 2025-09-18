@@ -5,9 +5,9 @@
 // export { default as style } from './assets/style.css'
 
 // SVG images (as components)
-export { default as GithubLogo } from './assets/githublogo.svelte'
-export { default as LoctionLogo } from './assets/loctionlogo.svelte'
-export { default as FdndLogo } from './assets/fdndlogo.svelte'
-export { default as PhoneLogo } from './assets/phonelogo.svelte'
+export { default as GithubIcon } from './assets/github-icon.svelte'
+export { default as LoctionIcon } from './assets/loction-icon.svelte'
+export { default as FdndIcon } from './assets/fdnd-icon.svelte'
+export { default as PhoneIcon } from './assets/phone-icon.svelte'
 
 
