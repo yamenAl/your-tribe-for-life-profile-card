@@ -3,11 +3,10 @@
   import { GithubIcon, LoctionIcon, FdndIcon, PhoneIcon } from '$lib';
   import { onMount } from 'svelte';
 
-  // Svelte 5: props come from load()
   let { data } = $props();
   const person = $derived(data.person);
 
-  // open/close and page flipping 
+  // open/close and page 
   let opened = $state(false);
   let spread = $state(0);               
   const TOTAL_SPREADS = 2;  
@@ -115,6 +114,10 @@
   position: absolute;
   top: -5vh;
   right: -7vw;
+  @media (min-width:900px){
+    top: -5vh;
+    right: -2vw;
+  }
 }
 
 .profile-front {
@@ -170,6 +173,9 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-top: 2vh;
+
+  
 
   li {
     display: flex;
@@ -207,15 +213,11 @@
   h2 {
     margin: 0;
     font-size: 0.85rem;
-    font-weight: 800;
     letter-spacing: 0.02em;
   }
 }
 
 
-
-
-/* Inside pages */
 /* Inside pages */
 .profile-pages {
   position: absolute;
@@ -336,45 +338,40 @@
 
 
 
-/* =========================================================
-   BREAKPOINTS
-   =======================================================*/
-@media (min-width:700px){
-  .profile-card{ width:380px; height:620px; }
-}
+/*  BREAKPOINTS */
+
+
 
 @media (min-width:900px){
-  .profile-card{
-    width: clamp(28rem, 62vw, 64rem);
-    height: clamp(22rem, 60vh, 40rem);
-  }
-
+  
   .profile-pages{
-    grid-template-columns:1fr 1fr;
-    gap:0; padding:16px; position:relative; min-height:60vh;
+    grid-template-columns: 1fr;   
+    gap: 12px;                   
+    padding: 10px;                
+    position: absolute;           
+    min-height: auto;             
   }
-  .profile-pages::before{
-    content:""; position:absolute; top:16px; bottom:16px; left:50%;
-    width:1px; background: var(--divider-gradient);
-  }
+  .profile-pages::before{ content: none; } 
 
-  .photo img{ margin-left:4vw; width:15vw; }
 
   .profile-page{
-    place-items:start; text-align:left; padding:24px;
+    place-items: center;         
+    text-align: center;           
+    padding: 18px;            
   }
-  .profile-page p{ max-width:40ch; }
-}
+  .profile-page p{ max-width: initial; }
 
-@media (min-width:1200px){
+ 
   .profile-card{
-    width: clamp(42rem, 58vw, 70rem);
-    height: clamp(26rem, 58vh, 44rem);
+    width: min(92vw, 360px);
+    height: min(92vh, 580px);
   }
-  .profile-page p{ max-width:48ch; }
-  .photo img{ width:320px; }
-}
 
+  .photo img{
+    margin-left: 4vw;
+    width: 20vh;
+  }
+}
 </style>
 
 
@@ -444,10 +441,16 @@
           {:else if spread === 1} 
             <article class="profile-page">
               <h2>About me</h2>
-                <h3>Role</h3>
-                <p>{person.role}</p>
-                <h3>Squads</h3>
-                <p>{person.squads}</p>
+              <ul class="fav-row">
+                <li>
+                  <h3>Role</h3>
+                  <p>{person.role}</p>
+                </li>
+                <li>
+                  <h3>Squads</h3>
+                  <p>{person.squads}</p>
+                </li>
+              </ul>
                 <h3>Bio</h3>
                 <p>{person.bio}</p>
             </article>
